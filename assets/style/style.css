@@ -1,0 +1,27 @@
+h1{
+    color: rebeccapurple;
+}
+
+#adminPanel{
+    margin-left: 2%;
+}
+
+.main-panel{
+    width:80%;
+    display: block;
+    margin:auto;
+}
+.increase-quantity{
+    max-width: 150px;
+}
+.category{
+    display:inline-block;
+    height:30px;
+}
+/**
+* hiding the default spinner of quantity
+*/
+input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}

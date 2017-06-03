@@ -1,0 +1,10 @@
+(function(){
+    angular.module('customerPanel')
+        .directive('customerPanelDirective',function(){
+            return{
+                restrict : 'E',
+                templateUrl:'customer-panel.html',
+                controller:'customerPanelController as customerCtrl',
+            }
+        });
+})();

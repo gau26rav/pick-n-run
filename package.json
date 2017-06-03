@@ -1,0 +1,15 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "A shopping cart website",
+  "main": "shopping-cart-module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shopping",
+    "carts"
+  ],
+  "author": "Gaurav Tiwari",
+  "license": "ISC"
+}

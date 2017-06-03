@@ -1,0 +1,11 @@
+form div{
+    margin-left: 1%;
+}
+
+input.ng-invalid{
+    color: #d43f3a;
+}
+
+input.ng-dirty{
+    color: #3c763d;
+}
