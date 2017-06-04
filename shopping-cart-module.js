@@ -1,5 +1,6 @@
 angular.module('mainShoppingModule',[
     'adminPanel',
+    'customerPanel',
     'bootstrapPanel',
     'utilityModule'
 ])

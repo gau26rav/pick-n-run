@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Cost of Item</label>
-                        <input type="text" class="form-control" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item">
+                        <input type="number" class="form-control" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item">
                     </div>
 
                     <div class="form-group">
@@ -46,15 +46,12 @@
                             </span>
                         </div>
                     </div>
-
-
                     <div class="form-group">
                         <label for="categoryName">Category</label>
                         <select id="categoryName" class="category"  ng-model="adminCtrl.newProduct.category">
                             <option ng-repeat="category in adminCtrl.categories">{{category.categoryName}}</option>
                         </select>
                     </div>
-
                     <button type="submit" class="btn btn-info btn-lg">Submit</button>
                     <button  class="btn btn-info btn-lg" ng-click="adminCtrl.resetProduct()">Reset Data</button>
 
