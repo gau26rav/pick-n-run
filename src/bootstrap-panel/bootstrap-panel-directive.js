@@ -3,7 +3,7 @@
         .directive('bootstrapPanelDirective',function(){
             return{
                 restrict : 'E',
-                templateUrl:'./bootstrap-panel/bootstrap-panel.html',
+                templateUrl:'./src/bootstrap-panel/bootstrap-panel.html',
                 controller:'bootstrapPanelController as bootstrapCtrl'
             }
         });

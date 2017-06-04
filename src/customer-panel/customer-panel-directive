@@ -3,8 +3,8 @@
         .directive('customerPanelDirective',function(){
             return{
                 restrict : 'E',
-                templateUrl:'customer-panel.html',
-                controller:'customerPanelController as customerCtrl',
+                templateUrl:'./src/customer-panel/customer-panel.html',
+                controller:'customerPanelController as customerCtrl'
             }
         });
 })();
