@@ -10,23 +10,27 @@
                 </div>
             </div>
             <div class="box-content">
-                <form role="form">
+                <form role="form" name="addProductForm" novalidate>
                     <div class="form-group">
                         <label for="itmName">Item Name</label>
-                        <input type="email" class="form-control" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name">
+                        <input type="text" class="form-control" name="productName" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name" ng-required=true>
+                        <span class ="error-message" ng-show="addProductForm.productName.$dirty && addProductForm.productName.$error.required">This field is required.</span>
                     </div>
                     <div class="form-group">
                         <label for="price">Cost of Item</label>
-                        <input type="number" class="form-control" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item">
+                        <input type="text" class="form-control" name="price" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item" ng-required=true ng-pattern="/^\d{0,9}(\.\d{1,9})?$/">
+                        <span class ="error-message" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.required">This field is required.</span>
+                        <span class ="error-message" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.pattern">Please enter a valid cost</span>
+
                     </div>
 
                     <div class="form-group">
                         <label for="itmDesc">Description</label>
-                        <input type="text" class="form-control" ng-model="adminCtrl.newProduct.description" id="itmDesc" placeholder="Enter Description of item">
+                        <input type="text" class="form-control" name = "desc" ng-model="adminCtrl.newProduct.description" id="itmDesc" placeholder="Enter Description of item">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Image File input</label>
-                        <input type="file" id="exampleInputFile">
+                        <input type="file" id="exampleInputFile" name ="product-image">
                         <p class="help-block">Upload the Image file.</p>
                     </div>
 
@@ -38,7 +42,7 @@
                                   <span class="glyphicon glyphicon-minus"></span>
                               </button>
                           </span>
-                            <input type="number" name="quant[1]" class="form-control input-number" ng-model="adminCtrl.newProduct.totalQuantity" ng-value="adminCtrl.quantity"  min="1" max="500">
+                            <input type="number" name="quant[1]" class="form-control input-number" ng-model="adminCtrl.newProduct.totalQuantity" ng-value="adminCtrl.quantity"  ng-minlenght="1" ng-maxlength="500">
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default btn-number" ng-model="adminCtrl.newProduct.quantity" ng-click=" adminCtrl.increaseQuantity()" data-type="plus" data-field="quant[1]">
                                   <span class="glyphicon glyphicon-plus"></span>
@@ -46,12 +50,15 @@
                             </span>
                         </div>
                     </div>
+
+
                     <div class="form-group">
                         <label for="categoryName">Category</label>
                         <select id="categoryName" class="category"  ng-model="adminCtrl.newProduct.category">
                             <option ng-repeat="category in adminCtrl.categories">{{category.categoryName}}</option>
                         </select>
                     </div>
+
                     <button type="submit" class="btn btn-info btn-lg">Submit</button>
                     <button  class="btn btn-info btn-lg" ng-click="adminCtrl.resetProduct()">Reset Data</button>
 
