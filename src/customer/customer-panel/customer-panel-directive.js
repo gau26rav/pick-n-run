@@ -3,7 +3,7 @@
         .directive('customerPanelDirective',function(){
             return{
                 restrict : 'E',
-                templateUrl:'./src/customer-panel/customer-panel.html',
+                templateUrl:'./src/customer/customer-panel/customer-panel.html',
                 controller:'customerPanelController as customerCtrl'
             }
         });

@@ -10,19 +10,23 @@
                 </div>
             </div>
             <div class="box-content">
-                <form role="form">
-                    <div class="form-group">
+                <form role="form" name="addItemForm" novalidate>
+                    <div class="form-group" ng-class="addItemForm.productName.$invalid  && !addItemForm.productName.$pristine ? 'has-error':'' ">
                         <label for="itmName">Item Name</label>
-                        <input type="email" class="form-control" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name">
+                        <input type="text" ng-required="true" name="productName" class="form-control" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name">
+                        <span class="help-block" ng-if="addItemForm.productName.$invalid  && !addItemForm.productName.$pristine">{{adminCtrl.errorMsgs.itmRequired}} !</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="addItemForm.price.$invalid && !addItemForm.price.$pristine ? 'has-error':'' ">
                         <label for="price">Cost of Item</label>
-                        <input type="number" class="form-control" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item">
+                        <input type="number" class="form-control" ng-model="adminCtrl.newProduct.price" name="price" id="price" minlength="3" ng-minlength="3" ng-maxlength="6" placeholder="Enter cost of item">
+                        <span class="help-block" ng-if="addItemForm.price.$invalid  && !addItemForm.price.$pristine">{{adminCtrl.errorMsgs.costRange}} !</span>
+
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group " ng-class="(addItemForm.description.$invalid && !addItemForm.description.$pristine) ? 'has-error': 'has-success'">
                         <label for="itmDesc">Description</label>
-                        <input type="text" class="form-control" ng-model="adminCtrl.newProduct.description" id="itmDesc" placeholder="Enter Description of item">
+                        <input type="text" name="description" class="form-control" ng-model="adminCtrl.newProduct.description" ng-required="true" id="itmDesc" placeholder="Enter Description of item">
+                        <span class="help-block" ng-show="addItemForm.description.$invalid && !addItemForm.description.$pristine">{{adminCtrl.errorMsgs.descRequired}} !</span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Image File input</label>
@@ -30,7 +34,7 @@
                         <p class="help-block">Upload the Image file.</p>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-class=" 'has-error' : addItemForm.quantity.$invalid && !addItemForm.quantity.$pristine">
                         <label for="exampleInputFile">Quantity of item</label>
                         <div class="input-group form-group">
                           <span class="input-group-btn">
@@ -38,17 +42,18 @@
                                   <span class="glyphicon glyphicon-minus"></span>
                               </button>
                           </span>
-                            <input type="number" name="quant[1]" class="form-control input-number" ng-model="adminCtrl.newProduct.totalQuantity" ng-value="adminCtrl.quantity"  min="1" max="500">
+                            <input type="number" name="quantity" class="form-control input-number" ng-model="adminCtrl.newProduct.totalQuantity" ng-value="adminCtrl.quantity"  min="1" max="500">
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default btn-number" ng-model="adminCtrl.newProduct.quantity" ng-click=" adminCtrl.increaseQuantity()" data-type="plus" data-field="quant[1]">
                                   <span class="glyphicon glyphicon-plus"></span>
                               </button>
                             </span>
                         </div>
+                        <span class="help-block" ng-show="addItemForm.quantity.$invalid && !addItemForm.quantity.$pristine">{{adminCtrl.errorMsgs.quantityRestriction}}</span>
                     </div>
                     <div class="form-group">
                         <label for="categoryName">Category</label>
-                        <select id="categoryName" class="category"  ng-model="adminCtrl.newProduct.category">
+                        <select id="categoryName" class="category" ng-required="true" ng-model="adminCtrl.newProduct.category">
                             <option ng-repeat="category in adminCtrl.categories">{{category.categoryName}}</option>
                         </select>
                     </div>

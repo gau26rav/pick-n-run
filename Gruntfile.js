@@ -23,6 +23,18 @@ module.exports = function(grunt){
     // Running grunt will run the tasks registered in the collection
     grunt.registerTask('default',['speaks']);
 
+    /**
+     * tell the grunt about the configuration file of karma
+     * @type {{unit: {configFile: string, singleRun: boolean}}}
+     */
+    var karma = {
+        unit: {
+            configFile: 'karma.conf.js',
+                singleRun: true
+        }
+    };
+
+
     // Save this snippet as grunt-war.js and run with  "grunt --gruntfile grunt-war.js war" at the command line.
 // Assumes simple layout:
 // -project
@@ -92,6 +104,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks( 'grunt-war' );
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-karma');
 
 
     // Register the tasks to be ran using the terminal. The tasks will be executed in the same order as they are mentioned in collection.
