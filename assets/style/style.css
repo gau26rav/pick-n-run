@@ -25,3 +25,15 @@ input[type="number"]::-webkit-outer-spin-button {
     display: none;
     -webkit-appearance: none;
 }
+
+/**
+Input controlls that are touched. Css for form validations
+ */
+input.ng-invalid.ng-dirty{
+    color: #d43f3a;
+    border :1px solid red;
+}
+
+.error-message{
+    color:red;
+}
