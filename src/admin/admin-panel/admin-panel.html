@@ -11,17 +11,17 @@
             </div>
             <div class="box-content">
                 <form role="form" name="addProductForm" novalidate>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' ? addProductForm.productName.$dirty && addProductForm.productName.$error.required }">
                         <label for="itmName">Item Name</label>
                         <input type="text" class="form-control" name="productName" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name" ng-required=true>
-                        <span class ="error-message" ng-show="addProductForm.productName.$dirty && addProductForm.productName.$error.required">This field is required.</span>
+                        <span class ="help-block" ng-show="!addProductForm.productName.$pristine && addProductForm.productName.$error.required">This field is required.</span>
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group" ng-class="{'has-error' ? addProductForm.price.$dirty && (addProductForm.price.$error.required || addProductForm.price.$error.pattern)}">
                         <label for="price">Cost of Item</label>
                         <input type="text" class="form-control" name="price" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item" ng-required=true ng-pattern="/^\d{0,9}(\.\d{1,9})?$/">
-                        <span class ="error-message" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.required">This field is required.</span>
-                        <span class ="error-message" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.pattern">Please enter a valid cost</span>
-
+                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.required">This field is required.</span>
+                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.pattern">Please enter a valid cost</span>
                     </div>
 
                     <div class="form-group">
@@ -59,7 +59,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-info btn-lg" ng-disabled="addProductForm.$invalid">Submit</button>
                     <button  class="btn btn-info btn-lg" ng-click="adminCtrl.resetProduct()">Reset Data</button>
 
                 </form>
