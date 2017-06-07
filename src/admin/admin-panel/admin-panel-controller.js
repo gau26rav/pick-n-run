@@ -7,9 +7,10 @@
             self.categories = dataStore.getCategories();
 
             self.errorMsgs ={
-                itmRequired:'Item name cannot be left empty',
-                costRange: 'Product cost must lie between 100 to 100000',
-                descRequired:'Product must have description about it',
+                itmRequired:'Product name cannot be left empty !!',
+                priceRequired:'Product price cannot be left empty !!',
+                costPattern: 'Please enter a valid cost !!',
+                descRequired:'Product must have description about it !!',
                 quantityRestriction:'Products quantity must falls under the range of 1 to 10'
             };
 

@@ -11,30 +11,30 @@
             </div>
             <div class="box-content">
                 <form role="form" name="addProductForm" novalidate>
-                    <div class="form-group" ng-class="{ 'has-error' ? addProductForm.productName.$dirty && addProductForm.productName.$error.required }">
+                    <div class="form-group" ng-class="{ 'has-error' : addProductForm.productName.$invalid && addProductForm.productName.$dirty, 'has-success': addProductForm.productName.$valid }">
                         <label for="itmName">Item Name</label>
                         <input type="text" class="form-control" name="productName" ng-model="adminCtrl.newProduct.productName" id="itmName" placeholder="Enter item name" ng-required=true>
-                        <span class ="help-block" ng-show="!addProductForm.productName.$pristine && addProductForm.productName.$error.required">This field is required.</span>
+                        <span class ="help-block" ng-show="!addProductForm.productName.$pristine && addProductForm.productName.$error.required">{{adminCtrl.errorMsgs.itmRequired}}</span>
                     </div>
 
-                    <div class="form-group" ng-class="{'has-error' ? addProductForm.price.$dirty && (addProductForm.price.$error.required || addProductForm.price.$error.pattern)}">
+                    <div class="form-group" ng-class="{ 'has-error' : addProductForm.price.$dirty && addProductForm.price.$invalid, 'has-success': addProductForm.price.$valid}">
                         <label for="price">Cost of Item</label>
                         <input type="text" class="form-control" name="price" ng-model="adminCtrl.newProduct.price" id="price" placeholder="Enter cost of item" ng-required=true ng-pattern="/^\d{0,9}(\.\d{1,9})?$/">
-                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.required">This field is required.</span>
-                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.pattern">Please enter a valid cost</span>
+                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.required">{{adminCtrl.errorMsgs.priceRequired}}</span>
+                        <span class ="help-block" ng-show="addProductForm.price.$dirty && addProductForm.price.$error.pattern">{{adminCtrl.errorMsgs.costPattern}}</span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' : addProductForm.desc.$invalid && addProductForm.desc.$dirty, 'has-success': addProductForm.desc.$valid }">
                         <label for="itmDesc">Description</label>
-                        <input type="text" class="form-control" name = "desc" ng-model="adminCtrl.newProduct.description" id="itmDesc" placeholder="Enter Description of item">
+                        <input type="text" class="form-control" name = "desc" ng-model="adminCtrl.newProduct.description" id="itmDesc" ng-required="true" placeholder="Enter Description of item">
+                        <span class ="help-block" ng-show="addProductForm.desc.$dirty && addProductForm.desc.$invalid">{{adminCtrl.errorMsgs.descRequired}}</span>
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Image File input</label>
                         <input type="file" id="exampleInputFile" name ="product-image">
                         <p class="help-block">Upload the Image file.</p>
                     </div>
-                    l,mlcvknkngcf
-
                     <div class="form-group">
                         <label for="exampleInputFile">Quantity of item</label>
                         <div class="input-group form-group">
