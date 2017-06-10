@@ -38,6 +38,10 @@
                 self.newProduct.totalQuantity-- ;
             };
 
+            self.collapseExpandForm =function(){
+                self.isAddFormCollapsed = !self.isAddFormCollapsed;
+            }
+
         }]);
 })();
 
