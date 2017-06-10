@@ -39,7 +39,7 @@ input.ng-invalid.ng-dirty{
 }
 
 .collapsible-form{
-    transition: display 1s, opacity 0.5s linear;
+    transition: visibility 1s, opacity 0.5s linear;
 }
 .collapsed-form{
     visibility: hidden;
