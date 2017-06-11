@@ -21,5 +21,8 @@
     "grunt-karma": "^2.0.0",
     "grunt-war": "^0.5.1",
     "karma": "^1.7.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.4"
   }
 }

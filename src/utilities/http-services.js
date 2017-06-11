@@ -24,12 +24,13 @@
 
             var saveData = function(product){
             $log.debug("httpCartServices.saveData()");
-            var deferred =$q.defet();
+            var deferred =$q.defer();
                 $http.post(path, product, header).then(function(response){
                     deferred.resolve(response);
                 }, function(exception){
                     deferred.reject(exception)
                 })
+              return deferred.promise;
             };
 
             return {
