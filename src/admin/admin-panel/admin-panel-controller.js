@@ -1,7 +1,7 @@
 (function(){
     angular.module('adminPanel',[])
 
-        .controller('adminPanelController',['$rootScope','dataStore', function($rootScope, dataStore){
+        .controller('adminPanelController',['$rootScope','dataStore','httpCartServices','$log', function($rootScope, dataStore, httpCartServices, $log){
             var self= this;
 
             self.categories = dataStore.getCategories();
@@ -40,6 +40,15 @@
 
             self.collapseExpandForm =function(){
                 self.isAddFormCollapsed = !self.isAddFormCollapsed;
+            }
+
+            self.getProducts = function(){
+                httpCartServices.setPath($rootScope.url.getProducts);
+                httpCartServices.getData().then(function(response){
+                    self.products = response.data;
+                },function (exception) {
+                    $log.error('Exception occured ---' , JSON.stringify(exception));
+                })
             }
 
         }]);

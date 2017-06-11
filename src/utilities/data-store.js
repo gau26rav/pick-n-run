@@ -8,9 +8,19 @@ angular.module('utilityModule',[])
         {categoryId:4, categoryName:'Thai Cuisine'},
         {categoryId:5, categoryName:'Chinese Cuisine'}
     ];
+
+    var products = [];
     return{
        getCategories : function() {
            return category;
-       }
+       },
+
+       saveProduct : function(product){
+           products.push(product);
+       },
+
+        getProducts : function(){
+            products.push(product);
+        }
    }
 });

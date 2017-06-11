@@ -10,8 +10,14 @@ angular.module('mainShoppingModule',[
    'COMPANY_NAME': 'Pick and Run'
 })
 
-.run(function($rootScope, SHOPPING_CONSTANTS){
+.constant('URL',{
+    getProducts:'http://localhost:3000/getProducts'
+})
+
+
+.run(function($rootScope, SHOPPING_CONSTANTS, URL){
     $rootScope.config = SHOPPING_CONSTANTS;
+    $rootScope.url = URL ;
 });
 
 angular.element(document).ready(function(){

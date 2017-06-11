@@ -1,4 +1,4 @@
-<div class="row" id="adminPanel" ng-init="adminCtrl.resetProduct()">
+<div class="row" id="adminPanel" ng-init="adminCtrl.resetProduct(); adminCtrl.getProducts()">
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
@@ -65,6 +65,11 @@
                     <button  class="btn btn-info btn-lg" ng-click="adminCtrl.resetProduct()">Reset Data</button>
 
                 </form>
+                <div ng-repeat="product in adminCtrl.products">
+                    <div>Product Name : {{product.productName}}</div>
+                    <div><img src = {{product.productImage}}/></div>
+
+                </div>
             </div>
         </div>
     </div>

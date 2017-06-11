@@ -38,6 +38,7 @@ input.ng-invalid.ng-dirty{
     color:red;
 }
 
+/*CSS for colapsible form*/
 .collapsible-form{
     transition: visibility 1s, opacity 0.5s linear;
 }
